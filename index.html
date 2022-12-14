@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+fetch('hhttps://api.luiboard.com/ai/v1/fetch?message=tell%20me%20a%20joke', {
+    method: 'GET',
+    headers: {
+        'apikey': 'ldb8-ub6c-i713-bd1b-oa3b-ac8b-r05b-d48b',
+    },
+})
+.then(response => response.text())
+.then(text => console.log(text))
+</script>
+</body>
+</html>
