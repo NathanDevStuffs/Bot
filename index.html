@@ -5,19 +5,21 @@
 </head>
 <body>
 <script>
+    ip=null
     function getIP(json) {
+    
+        ip=json.ip
+  }
     fetch('https://api.luiboard.com/ai/v1/fetch?message=tell%20me%20a%20joke', {
     method: 'GET',
     headers: {
-        'id': json.ip,
+        'id': ip,
         'apikey': 'ldb8-ub6c-i713-bd1b-oa3b-ac8b-r05b-d48b',
     },
 })
 .then(response => response.text())
 .then(text => console.log(text))
-        console.log(json.ip)
-  }
-
+console.log(ip);
 
 </script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
