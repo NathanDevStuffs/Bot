@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+<html style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); font-family: 'Rubik', sans-serif;">
 <head>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<style>
+    input {
+        text-align:center;
+    }
+    input[type=text]{
+    width:100%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+  input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+    </style>
 </head>
 <body>
 <script>
+    function sendmessage() {
 let file = "https://api.ipify.org"
 fetch (file)
 .then(x => x.text())
-.then(y => fetch('https://api.luiboard.com/ai/v1/fetch?message=tell%20me%20a%20joke', {
+.then(y => fetch('https://api.luiboard.com/ai/v1/fetch?message=', {
     method: 'GET',
     headers: {
         'id': y,
@@ -17,8 +38,10 @@ fetch (file)
 })
 .then(response => response.text())
 .then(text => console.log(text)));
-
+    }
 </script>
-
+<center>
+    <h1>Talk to a bot</h1><br>
+    <input type="text" placeholder="Send a message here!">
 </body>
 </html>
