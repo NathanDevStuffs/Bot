@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
 <script>
-    const ipAPI = '//api.ipify.org?format=json'
-
-const inputValue = fetch(ipAPI)
-  .then(response => response.json())
-  .then(data => data.ip)
+    
+    $.getJSON("http://api.ipify.org/?format=json", function (response) {
+    yourip = response.ip;
 
 fetch('https://api.luiboard.com/ai/v1/fetch?message=tell%20me%20a%20joke', {
     method: 'GET',
     headers: {
-        'id': inputValue,
+        'id': yourip,
         'apikey': 'ldb8-ub6c-i713-bd1b-oa3b-ac8b-r05b-d48b',
     },
 })
 .then(response => response.text())
 .then(text => console.log(text))
-    console.log(inputValue);
+    console.log(yourip);
 </script>
 </body>
 </html>
